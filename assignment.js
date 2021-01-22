@@ -32,29 +32,39 @@ console.log(totalCost);
 /* Calculate hotel cost start */
 
 function hotelCost(days){
-var cost = 0;
-    if(days<=10){
-        cost = days * 100;
-    }
-    else if(days<=20){
-        var firstPart = 10 * 100;
-        var remainingDays = days - 10;
-        var secondPart = remainingDays * 80;
-        cost = firstPart + secondPart;
-    } 
+    var cost = 0;
 
+    if (typeof days === 'string')
+    {
+        console.log('Error Input');
+    }
+        
     else {
-        var firstPart = 10 * 100;
-        var secondPart = 10 * 80;
-        var remainingDays = days - 20;
-        var thirdPart = remainingDays * 50;    
-        cost = firstPart + secondPart + thirdPart;
-    }
 
+        if (days <= 10) {
+            cost = days * 100;
+        }
+        else if (days <= 20) {
+            var firstPart = 10 * 100;
+            var remainingDays = days - 10;
+            var secondPart = remainingDays * 80;
+            cost = firstPart + secondPart;
+        }
+
+        else {
+            var firstPart = 10 * 100;
+            var secondPart = 10 * 80;
+            var remainingDays = days - 20;
+            var thirdPart = remainingDays * 50;
+            cost = firstPart + secondPart + thirdPart;
+        }
+
+    }
+    
     return cost;
 }
 
-var totalCost = hotelCost(22)   // 1000+800+100
+var totalCost = hotelCost(22) ;  // 1000+800+100
 console.log(totalCost);
 
 /* Calculate hotel cost end */
